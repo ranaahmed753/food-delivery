@@ -2,13 +2,18 @@ import {Dimensions, Platform} from 'react-native';
 import {moderateScale} from '../helper/Helper';
 const {width, height} = Dimensions.get('window');
 const {width: screenWidth, height: screenHeight} = Dimensions.get('screen');
-const theme = {
+export const theme = {
   colors: {
-    white: 'ffffff',
-    primary: 'FE8C00',
-    gray: 'C2C2C2',
+    white: '#ffffff',
+    primary: '#FE8C00',
+    gray: '#C2C2C2',
   },
   typography: {
+    Inter_14_Regular: {
+      fontFamily: 'Inter',
+      fontSize: 14,
+      lineHeight: 20,
+    },
     Inter_18_Regular: {
       fontFamily: 'Inter_18_Regular',
       fontSize: 18,
