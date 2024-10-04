@@ -12,7 +12,6 @@ import Assets from '../../../assets/index';
 import {theme} from '../../styles/Theme';
 import {scale} from '../../helper/Helper';
 import {CircleArrowIcon, RightArrowIcon} from '../../components/svg/Icons';
-import {current} from '@reduxjs/toolkit';
 
 const OnboardingScreen = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
