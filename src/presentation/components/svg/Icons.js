@@ -51,4 +51,100 @@ const CircleArrowIcon = props => {
     </Svg>
   );
 };
-export {RightArrowIcon, CircleArrowIcon};
+
+const ArrowDownIcon = props => {
+  return (
+    <Svg
+      width={16}
+      height={16}
+      viewBox="0 0 16 16"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+      {...props}>
+      <Path
+        d="M12.667 6L8 10.667 3.333 6"
+        stroke="#fff"
+        strokeWidth={2}
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
+    </Svg>
+  );
+};
+
+const LocationIcon = props => {
+  return (
+    <Svg
+      width={24}
+      height={24}
+      viewBox="0 0 24 24"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+      {...props}>
+      <Path
+        d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"
+        stroke="#fff"
+        strokeWidth={2}
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
+      <Path
+        d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"
+        stroke="#fff"
+        strokeWidth={2}
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
+    </Svg>
+  );
+};
+
+const RoundedSearchIcon = props => {
+  return (
+    <Svg
+      width={40}
+      height={41}
+      viewBox="0 0 40 41"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+      {...props}>
+      <Rect x={0.5} y={1} width={39} height={39} rx={19.5} stroke="#fff" />
+      <Path
+        d="M29 29.5l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"
+        stroke="#fff"
+        strokeWidth={1.5}
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
+    </Svg>
+  );
+};
+
+const RoundedNotificationIcon = props => {
+  return (
+    <Svg
+      width={40}
+      height={40}
+      viewBox="0 0 40 40"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+      {...props}>
+      <Rect x={0.5} y={0.5} width={39} height={39} rx={19.5} stroke="#fff" />
+      <Path
+        d="M23 25h5l-1.405-1.405A2.032 2.032 0 0126 22.16V19a6.003 6.003 0 00-4-5.659V13a2 2 0 10-4 0v.341c-2.33.824-4 3.047-4 5.659v3.159c0 .538-.214 1.055-.595 1.436L12 25h5m6 0v1a3 3 0 11-6 0v-1m6 0h-6"
+        stroke="#fff"
+        strokeWidth={1.5}
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
+    </Svg>
+  );
+};
+export {
+  RightArrowIcon,
+  CircleArrowIcon,
+  ArrowDownIcon,
+  LocationIcon,
+  RoundedSearchIcon,
+  RoundedNotificationIcon,
+};
