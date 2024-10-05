@@ -7,12 +7,19 @@ export const theme = {
     white: '#ffffff',
     primary: '#FE8C00',
     gray: '#C2C2C2',
+    black: '#101010',
   },
   typography: {
     Inter_14_Regular: {
       fontFamily: 'Inter',
       fontSize: 14,
       lineHeight: 20,
+    },
+    Inter_16_Normal: {
+      fontFamily: 'Inter',
+      fontStyle: 'normal',
+      fontSize: 16,
+      lineHeight: 24,
     },
     Inter_18_Regular: {
       fontFamily: 'Inter_18_Regular',
@@ -49,6 +56,11 @@ export const theme = {
     Inter_28_Bold: {
       fontFamily: 'Inter_24_Bold',
       fontSize: 28,
+    },
+    Inter_32_Regular: {
+      fontFamily: 'Inter_32_Regular',
+      fontSize: 32,
+      lineHeight: 40,
     },
   },
   sizes: {

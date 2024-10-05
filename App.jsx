@@ -1,11 +1,13 @@
-import {View, Text} from 'react-native';
+import {View} from 'react-native';
 import React from 'react';
+import {SafeAreaProvider} from 'react-native-safe-area-context';
+import RootNavigator from './src/presentation/navigation';
 
 const App = () => {
   return (
-    <View>
-      <Text>Food Delivery Up-Comming</Text>
-    </View>
+    <SafeAreaProvider>
+      <RootNavigator />
+    </SafeAreaProvider>
   );
 };
 
