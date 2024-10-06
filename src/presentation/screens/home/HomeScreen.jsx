@@ -3,9 +3,17 @@ import React from 'react';
 import _ from 'lodash';
 import ScreenWrapper from '../../components/wrapper/ScreenWrapper';
 import {theme} from '../../styles/Theme';
+import Assets from '../../../assets/index';
+import {scale} from '../../helper/Helper';
+import RestaurantCategoryList from '../../components/home/RestaurantCategoryList';
 
 const HomeScreen = () => {
-  const restaurants = [];
+  const restaurants = [{}];
+  const categoryList = [
+    {id: 1, title: 'Burger', icon: Assets.burger_small},
+    {id: 2, title: 'Sandwich', icon: Assets.sandwich},
+    {id: 3, title: 'Pizza', icon: Assets.pizza},
+  ];
   return (
     <ScreenWrapper
       hasHeader
@@ -17,13 +25,18 @@ const HomeScreen = () => {
           keyExtractor={(_, index) => index?.toString()}
           ListHeaderComponent={
             restaurants?.length > 0 && (
-              <View style={styles.find_by_category_container}>
-                <Text style={styles.find_by_category_text}>
-                  Find by category
-                </Text>
-                <TouchableOpacity>
-                  <Text style={styles.see_all_text}>See All</Text>
-                </TouchableOpacity>
+              <View>
+                <View style={styles.find_by_category_container}>
+                  <Text style={styles.find_by_category_text}>
+                    Find by category
+                  </Text>
+                  <TouchableOpacity>
+                    <Text style={styles.see_all_text}>See All</Text>
+                  </TouchableOpacity>
+                </View>
+                <View style={{marginTop: scale(16)}}>
+                  <RestaurantCategoryList categoryList={categoryList} />
+                </View>
               </View>
             )
           }
