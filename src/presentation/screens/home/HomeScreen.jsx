@@ -6,14 +6,115 @@ import {theme} from '../../styles/Theme';
 import Assets from '../../../assets/index';
 import {scale} from '../../helper/Helper';
 import RestaurantCategoryList from '../../components/home/RestaurantCategoryList';
+import PromotedRestaurantList from '../../components/restaurants/PromotedRestaurantList';
+import PopularRestaurantList from '../../components/restaurants/PopularRestaurantList';
+import RestaurantCard from '../../components/restaurants/RestaurantCard';
 
 const HomeScreen = () => {
-  const restaurants = [{}];
+  const restaurants = [
+    {
+      branchId: 1,
+      branchName: 'Ordinary Burgers',
+      image: Assets.burger_with_mutton,
+      ratings: '4.9',
+      isFavourite: false,
+      location: {lat: '', long: ''},
+      distance: '100',
+      price: '120',
+    },
+    {
+      branchId: 2,
+      branchName: 'Burger with meat',
+      image: Assets.burger_with_mutton,
+      ratings: '4.5',
+      isFavourite: false,
+      location: {lat: '', long: ''},
+      distance: '1000',
+      price: '1200',
+    },
+  ];
   const categoryList = [
     {id: 1, title: 'Burger', icon: Assets.burger_small},
     {id: 2, title: 'Sandwich', icon: Assets.sandwich},
     {id: 3, title: 'Pizza', icon: Assets.pizza},
   ];
+  const restaurantData = {
+    popularRestaurants: [
+      {
+        branchId: 1,
+        branchName: 'Ordinary Burgers',
+        image: Assets.burger_with_mutton,
+        ratings: '4.9',
+        isFavourite: false,
+        location: {lat: '', long: ''},
+        distance: '100',
+        price: '120',
+      },
+      {
+        branchId: 2,
+        branchName: 'Burger with meat',
+        image: Assets.burger_with_mutton,
+        ratings: '4.5',
+        isFavourite: false,
+        location: {lat: '', long: ''},
+        distance: '1000',
+        price: '1200',
+      },
+    ],
+    promotedRestaurants: [
+      {
+        branchId: 1,
+        branchName: 'Ordinary Burgers',
+        image: Assets.burger_with_mutton,
+        ratings: '4.9',
+        isFavourite: false,
+        location: {lat: '', long: ''},
+        distance: '100',
+        price: '120',
+      },
+      {
+        branchId: 2,
+        branchName: 'Burger with meat',
+        image: Assets.burger_with_mutton,
+        ratings: '4.5',
+        isFavourite: false,
+        location: {lat: '', long: ''},
+        distance: '1000',
+        price: '1200',
+      },
+    ],
+    allBranch: [
+      {
+        branchId: 1,
+        branchName: 'Ordinary Burgers',
+        image: Assets.burger_with_mutton,
+        ratings: '4.9',
+        isFavourite: false,
+        location: {lat: '', long: ''},
+        distance: '100',
+        price: '120',
+      },
+      {
+        branchId: 2,
+        branchName: 'Burger with meat',
+        image: Assets.burger_with_mutton,
+        ratings: '4.5',
+        isFavourite: false,
+        location: {lat: '', long: ''},
+        distance: '1000',
+        price: '1200',
+      },
+    ],
+  };
+  const renderItem = ({item}) => {
+    return (
+      <RestaurantCard
+        item={item}
+        width={theme.sizes.screenWidth * 0.8}
+        imageContainerStyle={{width: theme.sizes.screenWidth * 0.8}}
+      />
+    );
+  };
   return (
     <ScreenWrapper
       hasHeader
@@ -23,6 +124,8 @@ const HomeScreen = () => {
         <FlatList
           data={restaurants}
           keyExtractor={(_, index) => index?.toString()}
+          bounces
+          showsVerticalScrollIndicator={false}
           ListHeaderComponent={
             restaurants?.length > 0 && (
               <View>
@@ -37,6 +140,16 @@ const HomeScreen = () => {
                 <View style={{marginTop: scale(16)}}>
                   <RestaurantCategoryList categoryList={categoryList} />
                 </View>
+                <View style={{marginTop: scale(10)}}>
+                  <PromotedRestaurantList
+                    restaurants={restaurantData?.promotedRestaurants}
+                  />
+                </View>
+                <View style={{marginTop: scale(10)}}>
+                  <PopularRestaurantList
+                    restaurants={restaurantData?.popularRestaurants}
+                  />
+                </View>
               </View>
             )
           }
@@ -50,8 +163,9 @@ const HomeScreen = () => {
               <Text>No restaurants found....</Text>
             </View>
           }
-          renderItem={({item}) => null}
-          contentContainerStyle={{flexGrow: 1}}
+          renderItem={renderItem}
+          contentContainerStyle={{rowGap: 10}}
+          ListFooterComponent={<View style={{paddingBottom: 100}}></View>}
         />
       </View>
     </ScreenWrapper>
