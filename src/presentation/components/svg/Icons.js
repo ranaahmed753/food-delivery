@@ -140,6 +140,43 @@ const RoundedNotificationIcon = props => {
     </Svg>
   );
 };
+
+const StarIcon = props => {
+  return (
+    <Svg
+      width={14}
+      height={13}
+      viewBox="0 0 14 13"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+      {...props}>
+      <Path
+        d="M6.524.464a.5.5 0 01.952 0l1.208 3.718a.5.5 0 00.475.346h3.91a.5.5 0 01.294.904L10.2 7.731a.5.5 0 00-.182.559l1.209 3.719a.5.5 0 01-.77.559l-3.163-2.299a.5.5 0 00-.588 0l-3.163 2.299a.5.5 0 01-.77-.56L3.982 8.29a.5.5 0 00-.182-.56L.636 5.433a.5.5 0 01.294-.904h3.91a.5.5 0 00.476-.346L6.524.464z"
+        fill="#FE8C00"
+      />
+    </Svg>
+  );
+};
+
+const OutlineHeartIcon = props => {
+  return (
+    <Svg
+      width={18}
+      height={15}
+      viewBox="0 0 18 15"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+      {...props}>
+      <Path
+        d="M2.598 2.265a3.75 3.75 0 000 5.303L9 13.97l6.402-6.402a3.75 3.75 0 00-5.304-5.303L9 3.363 7.902 2.265a3.75 3.75 0 00-5.304 0z"
+        stroke="#F14141"
+        strokeWidth={1.5}
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
+    </Svg>
+  );
+};
 export {
   RightArrowIcon,
   CircleArrowIcon,
@@ -147,4 +184,6 @@ export {
   LocationIcon,
   RoundedSearchIcon,
   RoundedNotificationIcon,
+  StarIcon,
+  OutlineHeartIcon,
 };
