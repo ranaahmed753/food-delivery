@@ -9,6 +9,7 @@ import RestaurantCategoryList from '../../components/home/RestaurantCategoryList
 import PromotedRestaurantList from '../../components/restaurants/PromotedRestaurantList';
 import PopularRestaurantList from '../../components/restaurants/PopularRestaurantList';
 import RestaurantCard from '../../components/restaurants/RestaurantCard';
+import BaseBottomSheet from '../../components/bottom-sheet/BaseBottomSheet';
 
 const HomeScreen = () => {
   const restaurants = [
@@ -168,6 +169,21 @@ const HomeScreen = () => {
           ListFooterComponent={<View style={{paddingBottom: 100}}></View>}
         />
       </View>
+      <BaseBottomSheet>
+        <View>
+          <Text>Hellohbdhdsfhcfhschgshgcfsdhgcfhgds</Text>
+          <Text>Hellohbdhdsfhcfhschgshgcfsdhgcfhgds</Text>
+          <Text>Hellohbdhdsfhcfhschgshgcfsdhgcfhgds</Text>
+          <Text>Hellohbdhdsfhcfhschgshgcfsdhgcfhgds</Text>
+          <Text>Hellohbdhdsfhcfhschgshgcfsdhgcfhgds</Text>
+          <Text>Hellohbdhdsfhcfhschgshgcfsdhgcfhgds</Text>
+          <Text>Hellohbdhdsfhcfhschgshgcfsdhgcfhgds</Text>
+          <Text>Hellohbdhdsfhcfhschgshgcfsdhgcfhgds</Text>
+          <Text>Hellohbdhdsfhcfhschgshgcfsdhgcfhgds</Text>
+          <Text>Hellohbdhdsfhcfhschgshgcfsdhgcfhgds</Text>
+          <Text>Hellohbdhdsfhcfhschgshgcfsdhgcfhgds</Text>
+        </View>
+      </BaseBottomSheet>
     </ScreenWrapper>
   );
 };
