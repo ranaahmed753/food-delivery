@@ -15,6 +15,7 @@ import {
   RoundedNotificationIcon,
   RoundedSearchIcon,
 } from '../svg/Icons';
+import {useBottomSheet} from '../../context/BottomSheetContext';
 
 const ScreenWrapper = ({
   children,
@@ -24,6 +25,7 @@ const ScreenWrapper = ({
   fullScreen,
 }) => {
   const insets = useSafeAreaInsets();
+  const {openBottomSheet} = useBottomSheet();
   const fullScreenContainerStyle = fullScreen
     ? styles.fullScreenContainer
     : {flex: 1, paddingTop: insets?.top, paddingBottom: insets?.bottom};
@@ -42,7 +44,9 @@ const ScreenWrapper = ({
               <View>
                 <View style={styles.yourLocationContainer}>
                   <Text style={styles.yourLocation}>Your Location</Text>
-                  <TouchableOpacity style={styles.arrowDownTouch}>
+                  <TouchableOpacity
+                    style={styles.arrowDownTouch}
+                    onPress={openBottomSheet}>
                     <ArrowDownIcon />
                   </TouchableOpacity>
                 </View>
