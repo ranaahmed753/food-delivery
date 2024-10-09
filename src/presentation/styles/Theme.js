@@ -22,43 +22,43 @@ export const theme = {
       lineHeight: 24,
     },
     Inter_18_Regular: {
-      fontFamily: 'Inter_18_Regular',
+      fontFamily: 'Inter_18pt-Regular',
       fontSize: 18,
     },
     Inter_18_Semibold: {
-      fontFamily: 'Inter_18_Semibold',
+      fontFamily: 'Inter_18pt-Semibold',
       fontSize: 18,
     },
     Inter_18_Bold: {
-      fontFamily: 'Inter_18_Bold',
+      fontFamily: 'Inter_18pt-Bold',
       fontSize: 18,
     },
     Inter_24_Regular: {
-      fontFamily: 'Inter_24_Regular',
+      fontFamily: 'Inter_24pt-Regular',
       fontSize: 24,
     },
     Inter_24_Semibold: {
-      fontFamily: 'Inter_24_Semibold',
+      fontFamily: 'Inter_24pt-Semibold',
       fontSize: 24,
     },
     Inter_24_Bold: {
-      fontFamily: 'Inter_24_Bold',
+      fontFamily: 'Inter_24pt-Bold',
       fontSize: 24,
     },
     Inter_28_Regular: {
-      fontFamily: 'Inter_28_Regular',
+      fontFamily: 'Inter_28pt-Regular',
       fontSize: 28,
     },
     Inter_28_Semibold: {
-      fontFamily: 'Inter_24_Semibold',
+      fontFamily: 'Inter_24pt-Semibold',
       fontSize: 28,
     },
     Inter_28_Bold: {
-      fontFamily: 'Inter_24_Bold',
+      fontFamily: 'Inter_24pt-Bold',
       fontSize: 28,
     },
     Inter_32_Regular: {
-      fontFamily: 'Inter_32_Regular',
+      fontFamily: 'Inter_32pt-Regular',
       fontSize: 32,
       lineHeight: 40,
     },
