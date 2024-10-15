@@ -22,7 +22,7 @@ const ScreenWrapper = ({
   hasHeader = false,
   statusBarColor,
   barStyle,
-  fullScreen,
+  fullScreen = false,
 }) => {
   const insets = useSafeAreaInsets();
   const {openBottomSheet} = useBottomSheet();
@@ -37,6 +37,7 @@ const ScreenWrapper = ({
         barStyle={barStyle}
         animated={true}
       />
+
       {hasHeader ? (
         <View style={styles.hasHeaderContainer}>
           <View style={styles.homeLayoutContainer}>

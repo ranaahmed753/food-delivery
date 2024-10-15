@@ -8,6 +8,8 @@ export const theme = {
     primary: '#FE8C00',
     gray: '#C2C2C2',
     black: '#101010',
+    sunCrete: '#FE8C000A',
+    whiteEdgar: '#EDEDED',
   },
   typography: {
     Inter_14_Regular: {
