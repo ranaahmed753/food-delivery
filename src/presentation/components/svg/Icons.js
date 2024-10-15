@@ -75,23 +75,23 @@ const ArrowDownIcon = props => {
 const LocationIcon = props => {
   return (
     <Svg
-      width={24}
-      height={24}
-      viewBox="0 0 24 24"
+      width={14}
+      height={14}
+      viewBox="0 0 14 14"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
       {...props}>
       <Path
-        d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"
-        stroke="#fff"
-        strokeWidth={2}
+        d="M10.3 9.716l-1.886 1.886a2 2 0 01-2.828 0L3.7 9.716a4.667 4.667 0 116.6 0z"
+        stroke="#FE8C00"
+        strokeWidth={1.5}
         strokeLinecap="round"
         strokeLinejoin="round"
       />
       <Path
-        d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"
-        stroke="#fff"
-        strokeWidth={2}
+        d="M8.75 6.417a1.75 1.75 0 11-3.5 0 1.75 1.75 0 013.5 0z"
+        stroke="#FE8C00"
+        strokeWidth={1.5}
         strokeLinecap="round"
         strokeLinejoin="round"
       />
