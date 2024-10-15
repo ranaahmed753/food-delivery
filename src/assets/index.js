@@ -5,4 +5,5 @@ export default Assets = {
   burger_small: require('./images/burger_small.png'),
   pizza: require('./images/pizza.png'),
   sandwich: require('./images/sandwich.png'),
+  burger_full: require('./images/burger_full.jpg'),
 };

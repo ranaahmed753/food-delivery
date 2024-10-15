@@ -177,6 +177,99 @@ const OutlineHeartIcon = props => {
     </Svg>
   );
 };
+const CircularBackIcon = props => {
+  return (
+    <Svg
+      width={36}
+      height={36}
+      viewBox="0 0 36 36"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+      {...props}>
+      <Rect x={0.5} y={0.5} width={35} height={35} rx={17.5} stroke="#EDEDED" />
+      <Path
+        d="M20.5 23.833L14.667 18l5.833-5.834"
+        stroke="#fff"
+        strokeWidth={2}
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
+    </Svg>
+  );
+};
+const CircularHeartIcon = props => {
+  return (
+    <Svg
+      width={36}
+      height={36}
+      viewBox="0 0 36 36"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+      {...props}>
+      <Rect x={0.5} y={0.5} width={35} height={35} rx={17.5} stroke="#EDEDED" />
+      <Path
+        d="M11.598 13.265a3.75 3.75 0 000 5.303L18 24.97l6.402-6.402a3.75 3.75 0 00-5.304-5.303L18 14.363l-1.098-1.098a3.75 3.75 0 00-5.304 0z"
+        stroke="#fff"
+        strokeWidth={2}
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
+    </Svg>
+  );
+};
+const LeftArrowBackIcon = props => {
+  return (
+    <Svg
+      width={20}
+      height={20}
+      viewBox="0 0 20 20"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+      {...props}>
+      <Path
+        d="M12.5 15.833L6.667 10 12.5 4.167"
+        stroke="#403A3A"
+        strokeWidth={2}
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
+    </Svg>
+  );
+};
+const ClockIcon = props => {
+  return (
+    <Svg
+      width={14}
+      height={15}
+      viewBox="0 0 14 15"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+      {...props}>
+      <Path
+        fillRule="evenodd"
+        clipRule="evenodd"
+        d="M7 14.5a7 7 0 100-14 7 7 0 000 14zm1.4-9.8a.7.7 0 10-1.4 0v2.8H4.9a.7.7 0 100 1.4h2.8a.7.7 0 00.7-.7V4.7z"
+        fill="#FE8C00"
+      />
+    </Svg>
+  );
+};
+const DollarIcon = props => {
+  return (
+    <Svg
+      width={10}
+      height={23}
+      viewBox="0 0 10 23"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+      {...props}>
+      <Path
+        d="M9.225 13.91c0 .57-.155 1.095-.465 1.575-.3.47-.745.85-1.335 1.14-.58.29-1.28.45-2.1.48v1.2H4.38v-1.23c-1.1-.1-2-.435-2.7-1.005C.99 15.5.625 14.725.585 13.745H3.72c.04.51.26.845.66 1.005v-1.92c-.84-.23-1.5-.44-1.98-.63-.48-.2-.91-.52-1.29-.96-.37-.44-.555-1.04-.555-1.8 0-.63.165-1.175.495-1.635.34-.47.8-.83 1.38-1.08a5.47 5.47 0 011.95-.45V5.06h.945v1.215c1.11.08 1.99.4 2.64.96.66.56 1.025 1.33 1.095 2.31H5.895c-.04-.46-.23-.765-.57-.915v1.905l.375.12c.72.2 1.315.41 1.785.63.48.21.89.53 1.23.96.34.42.51.975.51 1.665zM3.69 9.305c0 .36.23.655.69.885V8.54c-.46.08-.69.335-.69.765zm1.635 5.52c.24-.05.43-.145.57-.285.14-.15.21-.335.21-.555 0-.35-.26-.635-.78-.855v1.695z"
+        fill="#FE8C00"
+      />
+    </Svg>
+  );
+};
 export {
   RightArrowIcon,
   CircleArrowIcon,
@@ -186,4 +279,9 @@ export {
   RoundedNotificationIcon,
   StarIcon,
   OutlineHeartIcon,
+  CircularBackIcon,
+  CircularHeartIcon,
+  LeftArrowBackIcon,
+  ClockIcon,
+  DollarIcon,
 };

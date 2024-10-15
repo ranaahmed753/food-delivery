@@ -10,8 +10,9 @@ import PromotedRestaurantList from '../../components/restaurants/PromotedRestaur
 import PopularRestaurantList from '../../components/restaurants/PopularRestaurantList';
 import RestaurantCard from '../../components/restaurants/RestaurantCard';
 import BaseBottomSheet from '../../components/bottom-sheet/BaseBottomSheet';
+import {routeName} from '../../navigation/routeName';
 
-const HomeScreen = () => {
+const HomeScreen = ({navigation}) => {
   const restaurants = [
     {
       branchId: 1,
@@ -123,6 +124,7 @@ const HomeScreen = () => {
         item={item}
         width={theme.sizes.screenWidth * 0.9}
         imageContainerStyle={{width: theme.sizes.screenWidth * 0.9}}
+        onPress={() => navigation.navigate(routeName.RestaurantDetail)}
       />
     );
   };
