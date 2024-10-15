@@ -83,6 +83,16 @@ const HomeScreen = () => {
         distance: '1000',
         price: '1200',
       },
+      {
+        branchId: 2,
+        branchName: 'Burger with meat',
+        image: Assets.burger_with_mutton,
+        ratings: '4.5',
+        isFavourite: false,
+        location: {lat: '', long: ''},
+        distance: '1000',
+        price: '1200',
+      },
     ],
     allBranch: [
       {
@@ -111,8 +121,8 @@ const HomeScreen = () => {
     return (
       <RestaurantCard
         item={item}
-        width={theme.sizes.screenWidth * 0.8}
-        imageContainerStyle={{width: theme.sizes.screenWidth * 0.8}}
+        width={theme.sizes.screenWidth * 0.9}
+        imageContainerStyle={{width: theme.sizes.screenWidth * 0.9}}
       />
     );
   };
@@ -165,7 +175,7 @@ const HomeScreen = () => {
             </View>
           }
           renderItem={renderItem}
-          contentContainerStyle={{rowGap: 10}}
+          contentContainerStyle={{rowGap: 10, flexGrow: 1}}
           ListFooterComponent={<View style={{paddingBottom: 100}}></View>}
         />
       </View>

@@ -15,7 +15,7 @@ import {Restaurant} from '../../../domain/models/Restaurant';
 const RestaurantCard = ({
   item = {},
   width = 150,
-  height = theme.sizes.height * 0.25,
+  height = theme.sizes.height * 0.27,
   imageContainerStyle = {width: 150, height: 100},
   onPress = () => {},
 }) => {
@@ -25,51 +25,21 @@ const RestaurantCard = ({
       style={{
         height: height,
         width: width,
-        borderRadius: scale(12),
-        padding: scale(8),
-        shadowColor: theme.colors.primary,
-        shadowOffset: {width: 0, height: 2},
-        shadowOpacity: 0.18,
-        shadowRadius: 3.84,
-        elevation: 5,
-        backgroundColor: theme.colors.white,
+        ...styles.container,
       }}
       onPress={onPress}>
       <View
         style={{
-          height: 100,
           width: imageContainerStyle.width,
-          borderRadius: scale(12),
-          overflow: 'hidden',
+          ...styles.imageBackContainer,
         }}>
         <ImageBackground
-          style={{
-            height: '100%',
-            width: '100%',
-            padding: scale(8),
-            overflow: 'hidden',
-          }}
+          style={styles.imageBackground}
           imageStyle={{borderRadius: scale(12)}}
           source={restaurant?.image}
           resizeMode="cover">
-          <View
-            style={{
-              width: '100%',
-              position: 'absolute',
-              right: 20,
-              top: 5,
-            }}>
-            <View
-              style={{
-                width: scale(30),
-                height: scale(30),
-                borderRadius: 999,
-                backgroundColor: theme.colors.white,
-                padding: scale(10),
-                justifyContent: 'center',
-                alignItems: 'center',
-                alignSelf: 'flex-end',
-              }}>
+          <View style={styles.imageBackInnerContainer}>
+            <View style={styles.outlineHeartContainer}>
               <TouchableOpacity>
                 <OutlineHeartIcon />
               </TouchableOpacity>
@@ -78,54 +48,88 @@ const RestaurantCard = ({
         </ImageBackground>
       </View>
 
-      <Text
-        style={{
-          ...theme.typography.Inter_16_Normal,
-          color: theme.colors.black,
-          marginTop: scale(8),
-        }}
-        numberOfLines={1}>
+      <Text style={styles.branchName} numberOfLines={1}>
         {restaurant?.branchName}
       </Text>
-      <View
-        style={{
-          marginTop: scale(4),
-          flexDirection: 'row',
-          flex: 1,
-          justifyContent: 'space-between',
-        }}>
-        <View style={{flexDirection: 'row'}}>
+      <View style={styles.rating_distance_container}>
+        <View style={styles.ratingContainer}>
           <StarIcon />
-          <Text
-            style={{
-              ...theme.typography.Inter_14_Regular,
-              color: theme.colors.black,
-              marginLeft: scale(4),
-            }}>
-            {restaurant?.ratings}
-          </Text>
+          <Text style={styles.ratings}>{restaurant?.ratings}</Text>
         </View>
-        <View style={{flexDirection: 'row'}}>
+        <View style={styles.distanceContainer}>
           <LocationIcon color={theme.colors.primary} />
-          <Text
-            style={{
-              ...theme.typography.Inter_14_Regular,
-              color: theme.colors.black,
-              marginLeft: scale(4),
-            }}>
-            {restaurant?.distance}m
-          </Text>
+          <Text style={styles.distance}>{restaurant?.distance}m</Text>
         </View>
       </View>
-      <Text
-        style={{
-          ...theme.typography.Inter_16_Normal,
-          color: theme.colors.primary,
-        }}>
-        $ 230
-      </Text>
+      <Text style={styles.price}>$ 230</Text>
     </Pressable>
   );
 };
+
+const styles = StyleSheet.create({
+  container: {
+    borderRadius: scale(12),
+    padding: scale(8),
+    shadowColor: theme.colors.primary,
+    shadowOffset: {width: 0, height: 2},
+    shadowOpacity: 0.18,
+    shadowRadius: 3.84,
+    elevation: 5,
+    backgroundColor: theme.colors.white,
+  },
+  imageBackContainer: {
+    height: 100,
+    borderRadius: scale(12),
+    overflow: 'hidden',
+  },
+  imageBackground: {
+    height: '100%',
+    width: '100%',
+    padding: scale(8),
+    overflow: 'hidden',
+  },
+  imageBackInnerContainer: {
+    width: '100%',
+    position: 'absolute',
+    right: 20,
+    top: 5,
+  },
+  outlineHeartContainer: {
+    width: scale(30),
+    height: scale(30),
+    borderRadius: 999,
+    backgroundColor: theme.colors.white,
+    padding: scale(10),
+    justifyContent: 'center',
+    alignItems: 'center',
+    alignSelf: 'flex-end',
+  },
+  branchName: {
+    ...theme.typography.Inter_16_Normal,
+    color: theme.colors.black,
+    marginTop: scale(8),
+  },
+  rating_distance_container: {
+    marginTop: scale(4),
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+  },
+  ratingContainer: {flexDirection: 'row', alignItems: 'center'},
+  ratings: {
+    ...theme.typography.Inter_14_Regular,
+    color: theme.colors.black,
+    marginLeft: scale(4),
+  },
+  distanceContainer: {flexDirection: 'row', alignItems: 'center'},
+  distance: {
+    ...theme.typography.Inter_14_Regular,
+    color: theme.colors.black,
+    marginLeft: scale(4),
+  },
+  price: {
+    ...theme.typography.Inter_16_Normal,
+    color: theme.colors.primary,
+  },
+});
 
 export default RestaurantCard;
