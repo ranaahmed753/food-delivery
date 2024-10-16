@@ -4,16 +4,21 @@ import {
   ImageBackground,
   ScrollView,
   TouchableOpacity,
+  RefreshControl,
+  Pressable,
 } from 'react-native';
 import React from 'react';
 import ScreenWrapper from '../../components/wrapper/ScreenWrapper';
 import {theme} from '../../styles/Theme';
 import Assets from '../../../assets';
 import {
+  CartIcon,
   ClockIcon,
   DollarIcon,
   LeftArrowBackIcon,
+  MinusIcon,
   OutlineHeartIcon,
+  PlusIcon,
   StarIcon,
 } from '../../components/svg/Icons';
 import Divider from '../../components/divider/Divider';
@@ -28,7 +33,11 @@ const RestaurantDetailScreen = ({navigation}) => {
             flexGrow: 1,
             padding: theme.sizes.basePadding,
           }}
-          showsVerticalScrollIndicator={false}>
+          showsVerticalScrollIndicator={false}
+          bounces
+          refreshControl={
+            <RefreshControl refreshing={false} onRefresh={() => null} />
+          }>
           <ImageBackground
             style={{
               height: 300,
@@ -171,6 +180,68 @@ const RestaurantDetailScreen = ({navigation}) => {
             in demand by many people, this is very recommended for you.
           </Text>
         </ScrollView>
+        <View
+          style={{
+            position: 'absolute',
+            zIndex: 999,
+            bottom: 0,
+            width: theme.sizes.screenWidth,
+            shadowColor: theme.colors.primary,
+            shadowOffset: {width: 0, height: 2},
+            shadowOpacity: 0.18,
+            shadowRadius: 3.84,
+            elevation: 5,
+            backgroundColor: theme.colors.white,
+            flexDirection: 'row',
+            alignItems: 'center',
+            paddingHorizontal: theme.sizes.basePadding,
+            paddingVertical: theme.sizes.basePadding,
+          }}>
+          <View style={{flexDirection: 'row', alignItems: 'center'}}>
+            <Pressable
+              style={{
+                borderRadius: 999,
+                borderWidth: 1,
+                borderColor: theme.colors.whiteEdgar,
+                padding: 3,
+              }}>
+              <MinusIcon />
+            </Pressable>
+            <Spacer width={8} />
+            <Text>3</Text>
+            <Spacer width={8} />
+            <Pressable
+              style={{
+                borderRadius: 999,
+                borderWidth: 1,
+                borderColor: theme.colors.whiteEdgar,
+                padding: 3,
+              }}>
+              <PlusIcon />
+            </Pressable>
+          </View>
+          <Spacer width={20} />
+          <TouchableOpacity
+            style={{
+              flex: 1,
+              padding: 10,
+              backgroundColor: theme.colors.primary,
+              alignItems: 'center',
+              justifyContent: 'center',
+              borderRadius: 999,
+              flexDirection: 'row',
+            }}>
+            <CartIcon />
+            <Text
+              style={{
+                ...theme.typography.Inter_14_Regular,
+                color: theme.colors.white,
+                marginLeft: 5,
+              }}>
+              Add to Cart
+            </Text>
+          </TouchableOpacity>
+        </View>
       </View>
     </ScreenWrapper>
   );

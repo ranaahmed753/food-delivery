@@ -270,6 +270,63 @@ const DollarIcon = props => {
     </Svg>
   );
 };
+const PlusIcon = props => {
+  return (
+    <Svg
+      width={24}
+      height={24}
+      viewBox="0 0 24 24"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+      {...props}>
+      <Path
+        d="M12 6v6m0 0v6m0-6h6m-6 0H6"
+        stroke="#101010"
+        strokeWidth={2}
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
+    </Svg>
+  );
+};
+const MinusIcon = props => {
+  return (
+    <Svg
+      width={24}
+      height={24}
+      viewBox="0 0 24 24"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+      {...props}>
+      <Path
+        d="M18 12H6"
+        stroke="#101010"
+        strokeWidth={2}
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
+    </Svg>
+  );
+};
+const CartIcon = props => {
+  return (
+    <Svg
+      width={21}
+      height={20}
+      viewBox="0 0 21 20"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+      {...props}>
+      <Path
+        d="M3 2.5h1.667L5 4.167m1.333 6.666h8.334L18 4.167H5m1.333 6.666L5 4.167m1.333 6.666l-1.91 1.911c-.525.525-.154 1.423.589 1.423h9.655m0 0a1.667 1.667 0 100 3.333 1.667 1.667 0 000-3.333zM8 15.833a1.667 1.667 0 11-3.333 0 1.667 1.667 0 013.333 0z"
+        stroke="#fff"
+        strokeWidth={1.5}
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
+    </Svg>
+  );
+};
 export {
   RightArrowIcon,
   CircleArrowIcon,
@@ -284,4 +341,7 @@ export {
   LeftArrowBackIcon,
   ClockIcon,
   DollarIcon,
+  PlusIcon,
+  MinusIcon,
+  CartIcon,
 };
