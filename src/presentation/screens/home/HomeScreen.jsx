@@ -125,6 +125,7 @@ const HomeScreen = ({navigation}) => {
         width={theme.sizes.screenWidth * 0.9}
         imageContainerStyle={{width: theme.sizes.screenWidth * 0.9}}
         onPress={() => navigation.navigate(routeName.RestaurantDetail)}
+        hasFavourite
       />
     );
   };

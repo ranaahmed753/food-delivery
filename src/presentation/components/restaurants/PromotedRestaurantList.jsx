@@ -5,7 +5,7 @@ import RestaurantCard from './RestaurantCard';
 
 const PromotedRestaurantList = ({restaurants = []}) => {
   const renderItem = ({item}) => {
-    return <RestaurantCard item={item} />;
+    return <RestaurantCard item={item} hasFavourite />;
   };
   return (
     <FlatList
