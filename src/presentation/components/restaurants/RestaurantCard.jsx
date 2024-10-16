@@ -18,6 +18,7 @@ const RestaurantCard = ({
   height = theme.sizes.height * 0.27,
   imageContainerStyle = {width: 150, height: 100},
   onPress = () => {},
+  hasFavourite = false,
 }) => {
   const restaurant = new Restaurant(item);
   return (
@@ -39,11 +40,13 @@ const RestaurantCard = ({
           source={restaurant?.image}
           resizeMode="cover">
           <View style={styles.imageBackInnerContainer}>
-            <View style={styles.outlineHeartContainer}>
-              <TouchableOpacity>
-                <OutlineHeartIcon />
-              </TouchableOpacity>
-            </View>
+            {hasFavourite && (
+              <View style={styles.outlineHeartContainer}>
+                <TouchableOpacity>
+                  <OutlineHeartIcon />
+                </TouchableOpacity>
+              </View>
+            )}
           </View>
         </ImageBackground>
       </View>

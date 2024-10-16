@@ -8,6 +8,7 @@ import {
   Pressable,
 } from 'react-native';
 import React from 'react';
+import _ from 'lodash';
 import ScreenWrapper from '../../components/wrapper/ScreenWrapper';
 import {theme} from '../../styles/Theme';
 import Assets from '../../../assets';
@@ -23,15 +24,53 @@ import {
 } from '../../components/svg/Icons';
 import Divider from '../../components/divider/Divider';
 import Spacer from '../../components/spacer/Spacer';
+import RestaurantCard from '../../components/restaurants/RestaurantCard';
+import {FlatList} from 'react-native-gesture-handler';
 
 const RestaurantDetailScreen = ({navigation}) => {
+  const recommendedRestaurants = [
+    {
+      branchId: 1,
+      branchName: 'Ordinary Burgers',
+      image: Assets.burger_with_mutton,
+      ratings: '4.9',
+      isFavourite: false,
+      location: {lat: '', long: ''},
+      distance: '100',
+      price: '120',
+    },
+    {
+      branchId: 2,
+      branchName: 'Burger with meat',
+      image: Assets.burger_with_mutton,
+      ratings: '4.5',
+      isFavourite: false,
+      location: {lat: '', long: ''},
+      distance: '1000',
+      price: '1200',
+    },
+    {
+      branchId: 2,
+      branchName: 'Burger with meat',
+      image: Assets.burger_with_mutton,
+      ratings: '4.5',
+      isFavourite: false,
+      location: {lat: '', long: ''},
+      distance: '1000',
+      price: '1200',
+    },
+  ];
+  const renderItem = ({item}) => {
+    return <RestaurantCard item={item} height={theme.sizes.height * 0.22} />;
+  };
   return (
     <ScreenWrapper fullScreen statusBarColor="transparent">
       <View style={{flex: 1}}>
         <ScrollView
           contentContainerStyle={{
             flexGrow: 1,
-            padding: theme.sizes.basePadding,
+            //padding: theme.sizes.basePadding,
+            paddingBottom: 100,
           }}
           showsVerticalScrollIndicator={false}
           bounces
@@ -44,6 +83,7 @@ const RestaurantDetailScreen = ({navigation}) => {
               paddingVertical: theme.sizes.basePadding,
               paddingHorizontal: theme.sizes.basePadding,
               justifyContent: 'space-between',
+              margin: theme.sizes.basePadding,
             }}
             source={Assets.burger_full}
             resizeMode="cover"
@@ -96,6 +136,7 @@ const RestaurantDetailScreen = ({navigation}) => {
               style={{
                 ...theme.typography.Inter_24_Regular,
                 color: theme.colors.black,
+                paddingHorizontal: theme.sizes.basePadding,
               }}>
               Burger With Meat 🍔
             </Text>
@@ -105,6 +146,7 @@ const RestaurantDetailScreen = ({navigation}) => {
               marginTop: 8,
               color: theme.colors.primary,
               ...theme.typography.Inter_18_Semibold,
+              paddingHorizontal: theme.sizes.basePadding,
             }}>
             $ 12,230
           </Text>
@@ -115,6 +157,7 @@ const RestaurantDetailScreen = ({navigation}) => {
               backgroundColor: theme.colors.sunCrete,
               height: 39,
               flexDirection: 'row',
+              marginHorizontal: theme.sizes.basePadding,
             }}>
             <View
               style={{
@@ -167,6 +210,7 @@ const RestaurantDetailScreen = ({navigation}) => {
               ...theme.typography.Inter_16_Normal,
               marginTop: 16,
               color: theme.colors.black,
+              paddingHorizontal: theme.sizes.basePadding,
             }}>
             Description
           </Text>
@@ -175,10 +219,50 @@ const RestaurantDetailScreen = ({navigation}) => {
               marginTop: 8,
               ...theme.typography.Inter_14_Regular,
               textAlign: 'justify',
+              paddingHorizontal: theme.sizes.basePadding,
             }}>
             Burger With Meat is a typical food from our restaurant that is much
             in demand by many people, this is very recommended for you.
           </Text>
+          <View
+            style={{
+              flexDirection: 'row',
+              alignItems: 'center',
+              justifyContent: 'space-between',
+              marginTop: 24,
+              paddingHorizontal: theme.sizes.basePadding,
+            }}>
+            <Text
+              style={{
+                ...theme.typography.Inter_16_Normal,
+                color: theme.colors.black,
+              }}>
+              Recommended for you
+            </Text>
+            <TouchableOpacity>
+              <Text
+                style={{
+                  ...theme.typography.Inter_14_Regular,
+                  color: theme.colors.primary,
+                }}>
+                See All
+              </Text>
+            </TouchableOpacity>
+          </View>
+
+          <FlatList
+            data={recommendedRestaurants}
+            keyExtractor={(_, index) => index?.toString()}
+            renderItem={renderItem}
+            horizontal
+            showsHorizontalScrollIndicator={false}
+            contentContainerStyle={{
+              columnGap: 10,
+              backgroundColor: theme.colors.white,
+              paddingVertical: 10,
+              paddingHorizontal: theme.sizes.basePadding,
+            }}
+          />
         </ScrollView>
         <View
           style={{
