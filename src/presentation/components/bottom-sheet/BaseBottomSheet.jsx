@@ -6,6 +6,7 @@ import BottomSheet, {
   BottomSheetModalProvider,
   BottomSheetScrollView,
 } from '@gorhom/bottom-sheet';
+import PropTypes from 'prop-types';
 import {theme} from '../../styles/Theme';
 import {moderateScale} from '../../helper/Helper';
 import {useBottomSheet} from '../../context/BottomSheetContext';
@@ -57,6 +58,10 @@ const BaseBottomSheet = ({children, hasInset = false}) => {
       </BottomSheet>
     </BottomSheetModalProvider>
   );
+};
+
+BaseBottomSheet.propTypes = {
+  hasInset: PropTypes.bool,
 };
 
 export default BaseBottomSheet;
