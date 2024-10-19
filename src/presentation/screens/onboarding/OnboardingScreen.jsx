@@ -4,51 +4,27 @@ import {
   StyleSheet,
   ImageBackground,
   TouchableOpacity,
-  FlatList,
 } from 'react-native';
-import React, {useRef, useState} from 'react';
+import React from 'react';
 import _ from 'lodash';
+import Animated, {
+  useSharedValue,
+  useAnimatedStyle,
+  withTiming,
+} from 'react-native-reanimated';
 import Assets from '../../../assets/index';
 import {theme} from '../../styles/Theme';
 import {scale} from '../../helper/Helper';
 import {CircleArrowIcon, RightArrowIcon} from '../../components/svg/Icons';
+import HorizontalCarousel from '../../components/carousel/HorizontalCarousel';
 
 const OnboardingScreen = () => {
-  const [currentIndex, setCurrentIndex] = useState(0);
-  const flatListRef = useRef();
   const items = [
     {id: 1, image: Assets.burger_with_vegitable},
     {id: 2, image: Assets.burger_with_mutton},
     {id: 3, image: Assets.burger_with_meat},
   ];
-  const onViewableItemsChanged = ({viewableItems}) => {
-    console.log(viewableItems);
-    if (viewableItems?.length > 0) {
-      setCurrentIndex(viewableItems[0]?.index);
-    }
-  };
-  const viewabilityConfigCallbackPairs = useRef([
-    {
-      onViewableItemsChanged,
-      viewabilityConfig: {
-        minimumViewTime: 100,
-        viewAreaCoveragePercentThreshold: 50,
-      },
-    },
-  ]);
-  const handleNext = () => {
-    if (currentIndex < items.length - 1) {
-      flatListRef.current.scrollToIndex({index: currentIndex + 1});
-      setCurrentIndex(currentIndex + 1);
-    }
-  };
 
-  const handleSkip = () => {
-    if (currentIndex < items.length - 1) {
-      flatListRef.current.scrollToIndex({index: items?.length - 1});
-      setCurrentIndex(items?.length - 1);
-    }
-  };
   const renderItem = ({item}) => {
     return (
       <ImageBackground
@@ -56,72 +32,91 @@ const OnboardingScreen = () => {
           height: theme.sizes.screenHeight,
           width: theme.sizes.screenWidth,
         }}
-        source={item?.image}></ImageBackground>
+        source={item?.image}
+      />
     );
   };
   return (
     <View style={styles.container}>
-      <FlatList
-        ref={flatListRef}
+      <HorizontalCarousel
         data={items}
-        keyExtractor={(_, index) => index?.toString()}
         renderItem={renderItem}
-        horizontal={true}
-        pagingEnabled={true}
-        showsHorizontalScrollIndicator={false}
-        viewabilityConfigCallbackPairs={viewabilityConfigCallbackPairs.current}
-      />
-      <View style={styles.infoContainer}>
-        <View>
-          <Text style={styles.we_serve_incomparable}>
-            We serve incomparable delicacies
-          </Text>
-          <Text style={styles.all_the_best_restaurants}>
-            All the best restaurants with their top menu waiting for you, they
-            cant’t wait for your order!!
-          </Text>
-          <View style={styles.paginatorContainer}>
-            {items?.map((_, index) => (
-              <View
-                key={index}
-                style={{
-                  width: index === currentIndex ? 50 : 20,
-                  height: 10,
-                  backgroundColor:
-                    index === currentIndex
+        renderPagination={({currentIndex, data, handleNext, handleSkip}) => (
+          <View style={styles.infoContainer}>
+            <View>
+              <Text style={styles.we_serve_incomparable}>
+                We serve incomparable delicacies
+              </Text>
+              <Text style={styles.all_the_best_restaurants}>
+                All the best restaurants with their top menu waiting for you,
+                they cant’t wait for your order!!
+              </Text>
+              <View style={styles.paginatorContainer}>
+                {data?.map((_, paginatorIndex) => {
+                  const animatedWidth = useSharedValue(
+                    paginatorIndex === currentIndex ? 50 : 30,
+                  );
+                  const animatedBackgroundColor = useSharedValue(
+                    paginatorIndex === currentIndex
                       ? theme.colors.white
                       : theme.colors.gray,
-                  borderRadius: 999,
-                  marginRight: 3,
-                }}
-              />
-            ))}
-          </View>
-        </View>
-        {currentIndex < items?.length - 1 && (
-          <View style={styles.skip_next_btn_container}>
-            <TouchableOpacity onPress={handleSkip}>
-              {currentIndex < items?.length - 1 && (
-                <Text style={styles.skipText}>Skip</Text>
-              )}
-            </TouchableOpacity>
-            <TouchableOpacity
-              style={{flexDirection: 'row'}}
-              onPress={handleNext}>
-              <Text style={styles.nextText}>Next</Text>
-              <RightArrowIcon />
-            </TouchableOpacity>
-          </View>
-        )}
+                  );
 
-        {currentIndex === items?.length - 1 && (
-          <View style={styles.circleArrowIconContainer}>
-            <TouchableOpacity>
-              <CircleArrowIcon height={50} width={50} />
-            </TouchableOpacity>
+                  if (paginatorIndex === currentIndex) {
+                    animatedWidth.value = withTiming(70, {duration: 300});
+                    animatedBackgroundColor.value = withTiming(
+                      theme.colors.white,
+                      {duration: 300},
+                    );
+                  } else {
+                    animatedWidth.value = withTiming(30, {duration: 300});
+                    animatedBackgroundColor.value = withTiming(
+                      theme.colors.gray,
+                      {duration: 300},
+                    );
+                  }
+
+                  const animatedStyle = useAnimatedStyle(() => {
+                    return {
+                      width: animatedWidth.value,
+                      backgroundColor: animatedBackgroundColor.value,
+                      height: 8,
+                      borderRadius: 999,
+                      marginHorizontal: 3,
+                    };
+                  });
+                  return (
+                    <Animated.View key={paginatorIndex} style={animatedStyle} />
+                  );
+                })}
+              </View>
+            </View>
+            {currentIndex < data?.length - 1 && (
+              <View style={styles.skip_next_btn_container}>
+                <TouchableOpacity onPress={handleSkip}>
+                  {currentIndex < data?.length - 1 && (
+                    <Text style={styles.skipText}>Skip</Text>
+                  )}
+                </TouchableOpacity>
+                <TouchableOpacity
+                  style={{flexDirection: 'row'}}
+                  onPress={handleNext}>
+                  <Text style={styles.nextText}>Next</Text>
+                  <RightArrowIcon />
+                </TouchableOpacity>
+              </View>
+            )}
+
+            {currentIndex === data?.length - 1 && (
+              <View style={styles.circleArrowIconContainer}>
+                <TouchableOpacity>
+                  <CircleArrowIcon height={50} width={50} />
+                </TouchableOpacity>
+              </View>
+            )}
           </View>
         )}
-      </View>
+      />
     </View>
   );
 };
