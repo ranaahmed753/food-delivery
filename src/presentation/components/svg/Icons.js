@@ -327,6 +327,66 @@ const CartIcon = props => {
     </Svg>
   );
 };
+const CircularMenuIcon = props => {
+  return (
+    <Svg
+      width={36}
+      height={36}
+      viewBox="0 0 36 36"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+      {...props}>
+      <Rect x={0.5} y={0.5} width={35} height={35} rx={17.5} fill="#fff" />
+      <Rect x={0.5} y={0.5} width={35} height={35} rx={17.5} stroke="#EDEDED" />
+      <Path
+        d="M12.167 18h.008M18 18h.008m5.825 0h.009M13 18a.833.833 0 11-1.667 0A.833.833 0 0113 18zm5.833 0a.833.833 0 11-1.666 0 .833.833 0 011.666 0zm5.834 0A.833.833 0 1123 18a.833.833 0 011.667 0z"
+        stroke="#101010"
+        strokeWidth={2}
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
+    </Svg>
+  );
+};
+const OutlineBackIcon = props => {
+  return (
+    <Svg
+      width={36}
+      height={36}
+      viewBox="0 0 36 36"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+      {...props}>
+      <Rect x={0.5} y={0.5} width={35} height={35} rx={17.5} fill="#fff" />
+      <Rect x={0.5} y={0.5} width={35} height={35} rx={17.5} stroke="#EDEDED" />
+      <Path
+        d="M20.5 23.833L14.667 18l5.833-5.834"
+        stroke="#101010"
+        strokeWidth={2}
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
+    </Svg>
+  );
+};
+const OfferIcon = props => {
+  return (
+    <Svg
+      width={20}
+      height={20}
+      viewBox="0 0 20 20"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+      {...props}>
+      <Path
+        fillRule="evenodd"
+        clipRule="evenodd"
+        d="M6.111 3.182A3.193 3.193 0 007.93 2.43a3.193 3.193 0 014.142 0c.512.436 1.148.7 1.818.753a3.193 3.193 0 012.929 2.93c.053.67.317 1.305.752 1.817a3.193 3.193 0 010 4.142 3.194 3.194 0 00-.752 1.817 3.193 3.193 0 01-2.93 2.93 3.194 3.194 0 00-1.817.752 3.193 3.193 0 01-4.142 0 3.193 3.193 0 00-1.818-.752 3.193 3.193 0 01-2.929-2.93 3.194 3.194 0 00-.753-1.817 3.193 3.193 0 010-4.142c.436-.512.7-1.148.753-1.818a3.193 3.193 0 012.93-2.929zm7.664 3.926a.625.625 0 10-.884-.883L6.225 12.89a.625.625 0 00.884.884l6.666-6.667zM7.5 6.458a1.042 1.042 0 100 2.084 1.042 1.042 0 000-2.084zm5 5a1.042 1.042 0 100 2.083 1.042 1.042 0 000-2.083z"
+        fill="#FE8C00"
+      />
+    </Svg>
+  );
+};
 export {
   RightArrowIcon,
   CircleArrowIcon,
@@ -344,4 +404,7 @@ export {
   PlusIcon,
   MinusIcon,
   CartIcon,
+  CircularMenuIcon,
+  OutlineBackIcon,
+  OfferIcon,
 };

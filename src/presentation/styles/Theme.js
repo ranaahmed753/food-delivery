@@ -10,6 +10,7 @@ export const theme = {
     black: '#101010',
     sunCrete: '#FE8C000A',
     whiteEdgar: '#EDEDED',
+    mithril: '#878787',
   },
   typography: {
     Inter_14_Regular: {
