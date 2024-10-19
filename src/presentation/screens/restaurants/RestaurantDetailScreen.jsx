@@ -22,10 +22,16 @@ import {
   PlusIcon,
   StarIcon,
 } from '../../components/svg/Icons';
+import Animated, {
+  useSharedValue,
+  useAnimatedStyle,
+  withTiming,
+} from 'react-native-reanimated';
 import Divider from '../../components/divider/Divider';
 import Spacer from '../../components/spacer/Spacer';
 import RestaurantCard from '../../components/restaurants/RestaurantCard';
 import {FlatList} from 'react-native-gesture-handler';
+import HorizontalCarousel from '../../components/carousel/HorizontalCarousel';
 
 const RestaurantDetailScreen = ({navigation}) => {
   const recommendedRestaurants = [
@@ -60,6 +66,11 @@ const RestaurantDetailScreen = ({navigation}) => {
       price: '1200',
     },
   ];
+  const sliderImages = [
+    {id: 1, image: Assets.burger_full},
+    {id: 2, image: Assets.burger_with_meat},
+    {id: 3, image: Assets.burger_with_mutton},
+  ];
   const renderItem = ({item}) => {
     return <RestaurantCard item={item} height={theme.sizes.height * 0.22} />;
   };
@@ -69,67 +80,112 @@ const RestaurantDetailScreen = ({navigation}) => {
         <ScrollView
           contentContainerStyle={{
             flexGrow: 1,
-            //padding: theme.sizes.basePadding,
             paddingBottom: 100,
           }}
           showsVerticalScrollIndicator={false}
           bounces
           refreshControl={
-            <RefreshControl refreshing={false} onRefresh={() => null} />
+            <RefreshControl refreshing={false} onRefresh={() => {}} />
           }>
-          <ImageBackground
-            style={{
-              height: 300,
-              paddingVertical: theme.sizes.basePadding,
-              paddingHorizontal: theme.sizes.basePadding,
-              justifyContent: 'space-between',
-              margin: theme.sizes.basePadding,
-            }}
-            source={Assets.burger_full}
-            resizeMode="cover"
-            imageStyle={{borderRadius: 16}}>
-            <View style={{flex: 1, justifyContent: 'space-between'}}>
-              <View
+          <HorizontalCarousel
+            data={sliderImages}
+            renderItem={({item}) => (
+              <ImageBackground
                 style={{
-                  flexDirection: 'row',
+                  height: 300,
+                  width: theme.sizes.width * 0.9,
+                  paddingVertical: theme.sizes.basePadding,
+                  paddingHorizontal: theme.sizes.basePadding,
                   justifyContent: 'space-between',
-                  marginTop: 10,
-                }}>
-                <TouchableOpacity
-                  style={{
-                    backgroundColor: theme.colors.white,
-                    borderRadius: 999,
-                    justifyContent: 'center',
-                    alignItems: 'center',
-                    height: 40,
-                    width: 40,
-                  }}
-                  onPress={() => navigation.goBack()}>
-                  <LeftArrowBackIcon />
-                </TouchableOpacity>
-                <TouchableOpacity
-                  style={{
-                    backgroundColor: theme.colors.white,
-                    borderRadius: 999,
-                    justifyContent: 'center',
-                    alignItems: 'center',
-                    height: 40,
-                    width: 40,
-                  }}>
-                  <OutlineHeartIcon />
-                </TouchableOpacity>
-              </View>
+                  margin: theme.sizes.basePadding,
+                }}
+                resizeMode="cover"
+                imageStyle={{borderRadius: 16}}
+                source={item?.image}>
+                <View style={{flex: 1, justifyContent: 'space-between'}}>
+                  <View
+                    style={{
+                      flexDirection: 'row',
+                      justifyContent: 'space-between',
+                      marginTop: 10,
+                    }}>
+                    <TouchableOpacity
+                      style={{
+                        backgroundColor: theme.colors.white,
+                        borderRadius: 999,
+                        justifyContent: 'center',
+                        alignItems: 'center',
+                        height: 40,
+                        width: 40,
+                      }}
+                      onPress={() => navigation.goBack()}>
+                      <LeftArrowBackIcon />
+                    </TouchableOpacity>
+                    <TouchableOpacity
+                      style={{
+                        backgroundColor: theme.colors.white,
+                        borderRadius: 999,
+                        justifyContent: 'center',
+                        alignItems: 'center',
+                        height: 40,
+                        width: 40,
+                      }}>
+                      <OutlineHeartIcon />
+                    </TouchableOpacity>
+                  </View>
 
-              <View
-                style={{
-                  flexDirection: 'row',
-                  justifyContent: 'center',
-                  marginBottom: 10,
-                }}>
-                {/* Having slider three dots here */}
+                  <View
+                    style={{
+                      flexDirection: 'row',
+                      justifyContent: 'center',
+                      marginBottom: 10,
+                    }}></View>
+                </View>
+              </ImageBackground>
+            )}
+            renderPagination={({currentIndex, data}) => (
+              <View style={{flexDirection: 'row', justifyContent: 'center'}}>
+                {data.map((_, paginatorIndex) => {
+                  const animatedWidth = useSharedValue(
+                    paginatorIndex === currentIndex ? 50 : 30,
+                  );
+                  const animatedBackgroundColor = useSharedValue(
+                    paginatorIndex === currentIndex
+                      ? theme.colors.primary
+                      : theme.colors.gray,
+                  );
+
+                  if (paginatorIndex === currentIndex) {
+                    animatedWidth.value = withTiming(70, {duration: 300});
+                    animatedBackgroundColor.value = withTiming(
+                      theme.colors.primary,
+                      {duration: 300},
+                    );
+                  } else {
+                    animatedWidth.value = withTiming(30, {duration: 300});
+                    animatedBackgroundColor.value = withTiming(
+                      theme.colors.gray,
+                      {duration: 300},
+                    );
+                  }
+
+                  const animatedStyle = useAnimatedStyle(() => {
+                    return {
+                      width: animatedWidth.value,
+                      backgroundColor: animatedBackgroundColor.value,
+                      height: 8,
+                      borderRadius: 999,
+                      marginHorizontal: 3,
+                    };
+                  });
+
+                  return (
+                    <Animated.View key={paginatorIndex} style={animatedStyle} />
+                  );
+                })}
               </View>
-            </View>
-          </ImageBackground>
+            )}
+          />
           <View
             style={{flexDirection: 'row', alignItems: 'center', marginTop: 16}}>
             <Text
