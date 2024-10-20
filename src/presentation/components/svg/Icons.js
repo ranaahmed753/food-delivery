@@ -1,5 +1,13 @@
 import * as React from 'react';
-import Svg, {Path, Rect, Circle} from 'react-native-svg';
+import Svg, {
+  Path,
+  Rect,
+  Circle,
+  G,
+  Defs,
+  LinearGradient,
+  Stop,
+} from 'react-native-svg';
 
 const RightArrowIcon = props => {
   return (
@@ -387,6 +395,184 @@ const OfferIcon = props => {
     </Svg>
   );
 };
+
+const TrashIcon = props => {
+  return (
+    <Svg
+      width={20}
+      height={20}
+      viewBox="0 0 20 20"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+      {...props}>
+      <Path
+        d="M15.833 5.833l-.722 10.12a1.667 1.667 0 01-1.663 1.547H6.552c-.874 0-1.6-.676-1.663-1.548L4.167 5.833m4.166 3.334v5m3.334-5v5m.833-8.334v-2.5a.833.833 0 00-.833-.833H8.333a.833.833 0 00-.833.833v2.5m-4.167 0h13.334"
+        stroke="#F14141"
+        strokeWidth={1.5}
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
+    </Svg>
+  );
+};
+const OutlinePlusIcon = props => {
+  return (
+    <Svg
+      width={28}
+      height={28}
+      viewBox="0 0 28 28"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+      {...props}>
+      <Rect x={0.5} y={0.5} width={27} height={27} rx={13.5} stroke="#EDEDED" />
+      <Path
+        d="M14 8v6m0 0v6m0-6h6m-6 0H8"
+        stroke="#101010"
+        strokeWidth={2}
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
+    </Svg>
+  );
+};
+const OutlineMinusIcon = props => {
+  return (
+    <Svg
+      width={28}
+      height={28}
+      viewBox="0 0 28 28"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+      {...props}>
+      <Rect x={0.5} y={0.5} width={27} height={27} rx={13.5} stroke="#EDEDED" />
+      <Path
+        d="M20 14H8"
+        stroke="#878787"
+        strokeWidth={2}
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
+    </Svg>
+  );
+};
+const CheckboxFull = props => {
+  return (
+    <Svg
+      width={20}
+      height={20}
+      viewBox="0 0 20 20"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+      {...props}>
+      <Path
+        d="M4.167 10.834L7.5 14.167l8.333-8.334"
+        stroke="#fff"
+        strokeWidth={2}
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
+    </Svg>
+  );
+};
+
+const EmptyCartSvg = props => {
+  return (
+    <Svg
+      width={292}
+      height={220}
+      viewBox="0 0 292 220"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+      {...props}>
+      <Circle
+        cx={146.078}
+        cy={103.5}
+        r={103.5}
+        fill="#FFAF0B"
+        fillOpacity={0.14}
+      />
+      <Circle cx={39.3438} cy={32.3438} r={9.70312} fill="#FE8C00" />
+      <Circle cx={34.4922} cy={181.125} r={12.9375} fill="#FE8C00" />
+      <Circle cx={265.75} cy={58.2188} r={12.9375} fill="#FE8C00" />
+      <Circle cx={247.961} cy={14.5547} r={8.08594} fill="#FE8C00" />
+      <G filter="url(#filter0_dd_1007_9214)">
+        <Path
+          fillRule="evenodd"
+          clipRule="evenodd"
+          d="M149.312 25.875c-21.776 0-41.04 10.76-52.763 27.255a51.894 51.894 0 00-11.924-1.38c-28.58 0-51.75 23.17-51.75 51.75 0 28.581 23.17 51.75 51.75 51.75H214c25.008 0 45.281-20.273 45.281-45.281S239.008 64.688 214 64.688a45.77 45.77 0 00-5.252.3c-9.912-23.006-32.793-39.113-59.436-39.113z"
+          fill="#F9F5FF"
+        />
+        <Circle
+          cx={84.625}
+          cy={103.5}
+          r={51.75}
+          fill="url(#paint0_linear_1007_9214)"
+        />
+        <Circle
+          cx={149.312}
+          cy={90.5625}
+          r={64.6875}
+          fill="url(#paint1_linear_1007_9214)"
+        />
+        <Circle
+          cx={214}
+          cy={109.969}
+          r={45.2812}
+          fill="url(#paint2_linear_1007_9214)"
+        />
+      </G>
+      <G filter="url(#filter1_b_1007_9214)">
+        <Rect
+          x={100.797}
+          y={97.0312}
+          width={90.5625}
+          height={90.5625}
+          rx={45.2812}
+          fill="#FE8C00"
+        />
+        <Path
+          d="M163.059 159.293l-6.604-6.604m4.717-11.32c0 8.857-7.18 16.037-16.037 16.037s-16.037-7.18-16.037-16.037 7.18-16.037 16.037-16.037 16.037 7.18 16.037 16.037z"
+          stroke="#fff"
+          strokeWidth={3.23438}
+          strokeLinecap="round"
+          strokeLinejoin="round"
+        />
+      </G>
+      <Defs>
+        <LinearGradient
+          id="paint0_linear_1007_9214"
+          x1={44.8884}
+          y1={69.308}
+          x2={136.375}
+          y2={155.25}
+          gradientUnits="userSpaceOnUse">
+          <Stop stopColor="#FFAF0B" stopOpacity={0.44} />
+          <Stop offset={0.997917} stopColor="#fff" stopOpacity={0} />
+        </LinearGradient>
+        <LinearGradient
+          id="paint1_linear_1007_9214"
+          x1={99.6417}
+          y1={47.8225}
+          x2={214}
+          y2={155.25}
+          gradientUnits="userSpaceOnUse">
+          <Stop stopColor="#FFAF0B" stopOpacity={0.44} />
+          <Stop offset={0.997917} stopColor="#fff" stopOpacity={0} />
+        </LinearGradient>
+        <LinearGradient
+          id="paint2_linear_1007_9214"
+          x1={179.23}
+          y1={80.0508}
+          x2={259.281}
+          y2={155.25}
+          gradientUnits="userSpaceOnUse">
+          <Stop stopColor="#FFAF0B" stopOpacity={0.44} />
+          <Stop offset={0.997917} stopColor="#fff" stopOpacity={0} />
+        </LinearGradient>
+      </Defs>
+    </Svg>
+  );
+};
 export {
   RightArrowIcon,
   CircleArrowIcon,
@@ -407,4 +593,9 @@ export {
   CircularMenuIcon,
   OutlineBackIcon,
   OfferIcon,
+  TrashIcon,
+  OutlinePlusIcon,
+  OutlineMinusIcon,
+  CheckboxFull,
+  EmptyCartSvg,
 };
