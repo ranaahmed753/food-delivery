@@ -22,6 +22,7 @@ const CartItem = ({item}) => {
         shadowOffset: {width: 0, height: 2},
         shadowOpacity: 0.18,
         shadowRadius: 3.84,
+        shadowColor: theme.colors.gray,
         elevation: 15,
         backgroundColor: theme.colors.white,
         padding: 12,

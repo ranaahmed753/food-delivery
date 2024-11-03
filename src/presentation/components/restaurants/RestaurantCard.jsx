@@ -73,11 +73,11 @@ const styles = StyleSheet.create({
   container: {
     borderRadius: scale(12),
     padding: scale(8),
-    shadowColor: theme.colors.primary,
+    shadowColor: theme.colors.gray,
     shadowOffset: {width: 0, height: 2},
     shadowOpacity: 0.18,
     shadowRadius: 3.84,
-    elevation: 5,
+    elevation: 10,
     backgroundColor: theme.colors.white,
   },
   imageBackContainer: {

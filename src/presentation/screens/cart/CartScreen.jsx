@@ -21,6 +21,8 @@ import CartItem from '../../components/cart/CartItem';
 import Spacer from '../../components/spacer/Spacer';
 import PaymentSummary from '../../components/cart/PaymentSummary';
 import EmptyCart from '../../components/cart/EmptyCart';
+import RecommentedRestaurants from '../../components/restaurants/RecommentedRestaurants';
+import Divider from '../../components/divider/Divider';
 
 const CartScreen = () => {
   const cartItems = [
@@ -28,6 +30,28 @@ const CartScreen = () => {
     {id: 2, name: 'Ordinary burgers', price: '$1560', isChecked: true},
     {id: 3, name: 'Ordinary burgers', price: '$1560', isChecked: true},
     {id: 4, name: 'Ordinary burgers', price: '$1560', isChecked: true},
+  ];
+  const restaurants = [
+    {
+      branchId: 1,
+      branchName: 'Ordinary Burgers',
+      image: Assets.burger_with_mutton,
+      ratings: '4.9',
+      isFavourite: false,
+      location: {lat: '', long: ''},
+      distance: '100',
+      price: '120',
+    },
+    {
+      branchId: 2,
+      branchName: 'Burger with meat',
+      image: Assets.burger_with_mutton,
+      ratings: '4.5',
+      isFavourite: false,
+      location: {lat: '', long: ''},
+      distance: '1000',
+      price: '1200',
+    },
   ];
   return (
     <ScreenWrapper fullScreen statusBarColor="transparent">
@@ -41,8 +65,13 @@ const CartScreen = () => {
           <ScrollView
             contentContainerStyle={{paddingBottom: 50}}
             showsVerticalScrollIndicator={false}
+            bounces
             refreshControl={
-              <RefreshControl refreshing={false} onRefresh={() => {}} />
+              <RefreshControl
+                colors={[theme.colors.primary]}
+                refreshing={false}
+                onRefresh={() => {}}
+              />
             }>
             <View
               style={{
@@ -129,7 +158,20 @@ const CartScreen = () => {
               </View>
             ))}
             <Spacer height={40} />
-            <PaymentSummary />
+            {cartItems?.length > 0 ? (
+              <RecommentedRestaurants restaurants={restaurants} />
+            ) : null}
+            <Spacer height={16} />
+            <Divider
+              height={2}
+              width={theme.sizes.width * 0.9}
+              color={theme.colors.whiteEdgar}
+              marginHorizontal={theme.sizes.basePadding}
+            />
+            <Spacer height={16} />
+
+            {cartItems?.length > 0 ? <PaymentSummary /> : null}
+
             <TouchableOpacity
               style={{
                 padding: 16,
