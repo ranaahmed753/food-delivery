@@ -98,10 +98,11 @@ const CartScreen = () => {
                 alignItems: 'center',
                 flexDirection: 'row',
                 paddingHorizontal: 10,
+                paddingVertical: 8,
               }}>
               <OfferIcon />
               <TextInput
-                style={{flex: 1}}
+                style={{flex: 1, marginLeft: 5}}
                 placeholder="Promo Code..."
                 placeholderTextColor={theme.colors.gray}
               />
