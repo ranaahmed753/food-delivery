@@ -3,4 +3,5 @@ export const routeName = {
   Home: 'Home',
   RestaurantDetail: 'RestaurantDetail',
   Cart: 'Cart',
+  ExtraCard: 'ExtraCard',
 };
